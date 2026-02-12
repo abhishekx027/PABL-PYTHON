@@ -1,1 +1,171 @@
+Q1. You are given an array of integers arr[]. You have to reverse the given array.
+Note: Modify the array in place.
 
+
+class Solution:
+    def reverseArray(self, arr):
+        # code here
+        
+        l = 0
+        r = len(arr) - 1
+        
+        while l < r:
+            arr[l], arr[r] = arr[r], arr[l]
+            l += 1
+            r -= 1
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q2. Given an array arr[]. Your task is to find the minimum and maximum elements
+in the array.
+
+
+class Solution:
+    def getMinMax(self, arr):
+        # code here
+        
+        min = arr[0]
+        max = arr[0]
+        
+        for i in arr:
+            
+            if i < min:
+                min = i
+            
+            if i > max:
+                max = i
+                
+        return [min, max]
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q3. Given an integer array arr[] and an integer k, your task is to find and return
+the k
+th smallest element in the given array.
+Note: The kth smallest element is determined based on the sorted order of the
+array.
+
+
+class Solution:
+    def kthSmallest(self, arr, k):
+        # Code here
+        
+        arr.sort()
+        return arr[k - 1] 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q4. You are given two arrays a[] and b[], return the Union of both the arrays in any
+order.
+The Union of two arrays is a collection of all distinct elements present in either of
+the arrays. If an element appears more than once in one or both arrays, it should be
+included only once in the result.
+Note: Elements of a[] and b[] are not necessarily distinct.
+Note that, You can return the Union in any order but the driver code will print the
+result in sorted order only.
+
+
+class Solution:    
+    def findUnion(self, a, b):
+        # code here
+        
+        s = set()
+        
+        for i in a:
+            s.add(i)
+        
+        for i in b:
+            s.add(i)
+        
+        return list(s)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q5. Given an array arr[]. The task is to find the largest element and return it.
+
+
+class Solution:
+    def largest(self, arr):
+
+        largest = arr[0]
+        
+
+        for i in arr:
+            if i > largest:
+                largest = i
+        
+        return largest
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q6. Given an array arr, rotate the array by one position in clockwise direction.
+
+#User function Template for python3
+
+class Solution:
+    def rotate(self, arr):
+        
+        last = arr[-1]
+        
+        for i in range(len(arr) - 1, 0, -1):
+            arr[i] = arr[i - 1]
+            
+        arr[0] = last 
+        
+        return arr
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q7. You are given an integer array arr[]. You need to find the maximum sum of a
+subarray (containing at least one element) in the array arr[].
+Note : A subarray is a continuous part of an array.
+
+class Solution:
+    def maxSubarraySum(self, arr):
+        # Code here
+        
+        current_sum = arr[0]
+        max_sum = arr[0]
+        
+        for i in range(1, len(arr)):
+            current_sum = max(arr[i], current_sum + arr[i])
+            
+            max_sum = max(max_sum, current_sum)
+            
+        return max_sum
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q8. Given a sorted array of distinct integers and a target value, return the index if the
+target is found. If not, return the index where it would be if it were inserted in
+order.
+You must write an algorithm with O(log n) runtime complexity.
+
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        low = 0
+        high = len(nums) - 1
+
+        while low <= high:
+            mid = (low + high) // 2
+
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                low = mid + 1
+            else:
+                high = mid - 1
+
+        return low
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q9. Given an array of integers nums and an integer target, return indices of the two
+numbers such that they add up to target.
+You may assume that each input would have exactly one solution, and you may
+not use the same element twice.
+You can return the answer in any order
+
+
+        
+        
